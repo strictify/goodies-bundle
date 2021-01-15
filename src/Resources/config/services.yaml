@@ -3,37 +3,8 @@ services:
           autowire: true      # Automatically injects dependencies in your services.
           autoconfigure: true # Automatically registers your services as commands, event subscribers, etc
 
-     Strictify\Admin\Controller\:
-          resource: '../../Controller'
-          tags: ['controller.service_arguments']
-          autowire: true
+#     Strictify\Goodies\Controller\:
+#          resource: '../../Controller'
+#          tags: ['controller.service_arguments']
+#          autowire: true
 
-     Strictify\Admin\Service\NavigationBuilder\NavigationBuilder: ~
-
-     Strictify\Admin\Service\BreadcrumbsBuilder\BreadcrumbsBuilder: ~
-
-     Strictify\Admin\Service\ViewFactory\ViewFactory: ~
-
-     Strictify\Admin\Service\SidePanelBuilder\SidePanelBuilder: ~
-     Strictify\Admin\Service\Reader\Reader: ~
-
-     Strictify\Admin\Service\NotificationsBuilder\NotificationsBuilder: ~
-
-     Strictify\Admin\Service\SearchBuilder\SearchBuilder: ~
-
-     Strictify\Admin\Twig\ContentClassesExtension: ~
-
-     Strictify\Admin\Service\LayoutBuilder\LayoutBuilder: ~
-
-     Strictify\Admin\Twig\RenderExtension: ~
-     Strictify\Admin\Twig\LayoutResolver: ~
-
-     Strictify\Admin\Listener\ViewResponseListener:
-          tags: [kernel.event_listener]
-
-     Strictify\Admin\Service\Renderer\Strategy\Link\LinkRenderer: ~
-     Strictify\Admin\Service\Renderer\Strategy\Notification\NotificationItemRenderer: ~
-     Strictify\Admin\Service\Renderer\Strategy\SidePanel\SidePanelRenderer: ~
-     Strictify\Admin\Service\Renderer\Strategy\Table\TableRenderer: ~
-     Strictify\Admin\Service\Renderer\Strategy\Splitter\SplitterRenderer: ~
-     Strictify\Admin\Service\Renderer\Strategy\SidePanel\FilterFormSidePanelRenderer: ~

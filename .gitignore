@@ -1,0 +1,5 @@
+/vendor/
+/lsp
+.php_cs.cache
+/build
+.idea

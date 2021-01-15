@@ -1,0 +1,27 @@
+{
+    "name": "strictify/goodies-bundle",
+    "description": "Set of utilities",
+    "type": "symfony-bundle",
+	"license": "MIT",
+    "authors": [
+        {
+            "name": "Zeljko Mitic",
+            "email": "mitke013@gmail.com"
+        }
+    ],
+    "require": {
+	"php": "8.*",
+        "symfony/framework-bundle": "^5.2"
+	},
+	    "autoload": {
+        "psr-4": {
+            "Strictify\\Goodies\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Strictify\\Goodies\\Tests\\": "tests",
+            "Strictify\\Goodies\\Tests\\Fixture\\": "tests\\fixtures"
+        }
+    }
+}

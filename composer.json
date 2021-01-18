@@ -2,7 +2,7 @@
     "name": "strictify/goodies-bundle",
     "description": "Set of utilities",
     "type": "symfony-bundle",
-	"license": "MIT",
+    "license": "MIT",
     "authors": [
         {
             "name": "Zeljko Mitic",
@@ -10,10 +10,14 @@
         }
     ],
     "require": {
-	"php": "8.*",
-        "symfony/framework-bundle": "^5.2"
-	},
-	    "autoload": {
+        "php": "8.*",
+        "symfony/framework-bundle": "^5.2",
+        "symfony/form": "^5.2"
+    },
+    "require-dev": {
+        "vimeo/psalm": "dev-master"
+    },
+    "autoload": {
         "psr-4": {
             "Strictify\\Goodies\\": "src"
         }

@@ -8,3 +8,6 @@ services:
 #          tags: ['controller.service_arguments']
 #          autowire: true
 
+
+     Strictify\Goodies\Goodies\FiltersPassThru\RouterDecorator:
+          decorates: "router"

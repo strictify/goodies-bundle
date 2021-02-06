@@ -11,7 +11,9 @@ use Symfony\Component\Form\FormError;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\FormErrorIterator;
+use Symfony\Component\Form\FormConfigInterface;
 use Symfony\Component\Form\ClearableErrorsInterface;
+use Symfony\Component\PropertyAccess\PropertyPathInterface;
 
 class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsInterface
 {
@@ -56,7 +58,11 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->offsetExists($offset);
     }
 
-    public function offsetGet($offset)
+    /**
+     * @psalm-suppress InvalidReturnType
+     * @psalm-suppress InvalidReturnStatement
+     */
+    public function offsetGet($offset): FormInterface
     {
         return $this->form->offsetGet($offset);
     }
@@ -145,27 +151,27 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->getExtraData();
     }
 
-    public function getConfig()
+    public function getConfig(): FormConfigInterface
     {
         return $this->form->getConfig();
     }
 
-    public function isSubmitted()
+    public function isSubmitted(): bool
     {
         return $this->form->isSubmitted();
     }
 
-    public function getName()
+    public function getName(): string
     {
         return $this->form->getName();
     }
 
-    public function getPropertyPath()
+    public function getPropertyPath(): ?PropertyPathInterface
     {
         return $this->form->getPropertyPath();
     }
 
-    public function addError(FormError $error)
+    public function addError(FormError $error): self
     {
         $this->form->addError($error);
 
@@ -226,6 +232,9 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->createView($parent);
     }
 
+    /**
+     * @return static
+     */
     public function clearErrors(bool $deep = false)
     {
         $this->form->clearErrors($deep);
@@ -233,7 +242,12 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this;
     }
 
-    public function getIterator()
+    /**
+     * @psalm-suppress ImplementedReturnTypeMismatch
+     *
+     * @return iterable<mixed, FormInterface>
+     */
+    public function getIterator(): iterable
     {
         return $this->form->getIterator();
     }

@@ -1,9 +1,8 @@
-import { Controller } from 'stimulus';
+import {Controller} from 'stimulus';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
     connect() {
-        // console.log(this.element);
     }
 
     onChange(event) {
@@ -14,10 +13,13 @@ export default class extends Controller {
         let hidden = document.createElement('input');
         hidden.setAttribute('type', 'hidden');
         hidden.setAttribute('name', '_dynamic_field');
-        hidden.setAttribute('value', '1' );
+        hidden.setAttribute('value', '1');
         form.appendChild(hidden);
+
+        form.querySelectorAll('button').forEach((button) => {
+            button.setAttribute('disabled', 'disabled');
+        });
 
         form.requestSubmit();
     }
-
 }

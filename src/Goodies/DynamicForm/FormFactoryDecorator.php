@@ -16,7 +16,7 @@ class FormFactoryDecorator implements FormFactoryInterface
     }
 
     /**
-     * @inheritDoc
+     * @psalm-suppress MissingParamType
      */
     public function create(string $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = []): FormInterface
     {
@@ -29,6 +29,9 @@ class FormFactoryDecorator implements FormFactoryInterface
         return $form;
     }
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function createNamed(string $name, string $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = []): FormInterface
     {
         $form = $this->formFactory->createNamed($name, $type, $data, $options);
@@ -51,11 +54,17 @@ class FormFactoryDecorator implements FormFactoryInterface
         return $form;
     }
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function createBuilder(string $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = []): FormBuilderInterface
     {
         return $this->formFactory->createBuilder($type, $data, $options);
     }
 
+    /**
+     * @psalm-suppress MissingParamType
+     */
     public function createNamedBuilder(string $name, string $type = 'Symfony\Component\Form\Extension\Core\Type\FormType', $data = null, array $options = []): FormBuilderInterface
     {
         return $this->formFactory->createNamedBuilder($name, $type, $data, $options);

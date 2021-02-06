@@ -15,8 +15,15 @@
         "symfony/form": "^5.2"
     },
     "require-dev": {
-        "vimeo/psalm": "dev-master"
+        "vimeo/psalm": "dev-master",
+        "psalm/plugin-symfony": "dev-symfony-forms"
     },
+    "repositories": [
+        {
+            "type": "github",
+            "url": "git@github.com:strictify/psalm-plugin-symfony.git"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "Strictify\\Goodies\\": "src"

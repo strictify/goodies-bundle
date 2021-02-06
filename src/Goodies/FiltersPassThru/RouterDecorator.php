@@ -78,7 +78,7 @@ class RouterDecorator implements RouterInterface, WarmableInterface, ServiceSubs
         return $this->router->warmUp($cacheDir);
     }
 
-    public static function getSubscribedServices()
+    public static function getSubscribedServices(): array
     {
         return Router::getSubscribedServices();
     }

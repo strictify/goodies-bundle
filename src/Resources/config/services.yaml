@@ -11,3 +11,8 @@ services:
 
      Strictify\Goodies\Goodies\FiltersPassThru\RouterDecorator:
           decorates: "router"
+
+     Strictify\Goodies\Goodies\DynamicForm\FormFactoryDecorator:
+          decorates: "form.factory"
+
+     Strictify\Goodies\Goodies\DynamicForm\DynamicFormExtension: ~

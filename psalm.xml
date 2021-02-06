@@ -13,4 +13,10 @@
             <file name="src/DependencyInjection/Configuration.php"/>
         </ignoreFiles>
     </projectFiles>
+
+    <plugins>
+        <!--        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin">-->
+        <!--            <containerXml>var/cache/dev/srcApp_KernelDevDebugContainer.xml</containerXml>-->
+        <!--        </pluginClass>-->
+        <pluginClass class="Psalm\SymfonyPsalmPlugin\Plugin"/></plugins>
 </psalm>

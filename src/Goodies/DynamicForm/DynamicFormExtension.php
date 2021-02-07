@@ -16,6 +16,8 @@ class DynamicFormExtension extends AbstractTypeExtension
      * @param array{dynamic: bool} $options
      *
      * @psalm-suppress MoreSpecificImplementedParamType
+     *
+     * @return
      */
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {

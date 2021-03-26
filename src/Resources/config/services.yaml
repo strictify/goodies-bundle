@@ -16,3 +16,5 @@ services:
           decorates: "form.factory"
 
      Strictify\Goodies\Goodies\DynamicForm\DynamicFormExtension: ~
+
+     Strictify\Goodies\Goodies\FormAction\AddFormActionExtension: ~

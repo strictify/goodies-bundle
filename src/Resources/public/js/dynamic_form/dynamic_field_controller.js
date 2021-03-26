@@ -2,9 +2,6 @@ import {Controller} from 'stimulus';
 
 /* stimulusFetch: 'lazy' */
 export default class extends Controller {
-    connect() {
-    }
-
     onChange(event) {
         let form = event.target.form;
         // disable client-side validation; otherwise form.requestSubmit() will not work

@@ -21,7 +21,7 @@ class RouterDecorator implements RouterInterface, WarmableInterface, ServiceSubs
     public function __construct(
         private string $keyword,
         private array $passQueryData,
-        private Router $router,
+        private RouterInterface $router,
         private RequestStack $requestStack,
     )
     {
@@ -75,7 +75,11 @@ class RouterDecorator implements RouterInterface, WarmableInterface, ServiceSubs
     /** @return array<string> */
     public function warmUp(string $cacheDir): array
     {
-        return $this->router->warmUp($cacheDir);
+        if ($this->router instanceof WarmableInterface) {
+            return $this->router->warmUp($cacheDir);
+        }
+
+        return [];
     }
 
     public static function getSubscribedServices(): array

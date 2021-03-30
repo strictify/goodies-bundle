@@ -30,7 +30,6 @@ class DynamicFormExtension extends AbstractTypeExtension
         }
         $view->vars['row_attr']['data-controller'] = 'dynamic-field';
         $view->vars['attr']['data-action'] = 'change->dynamic-field#onChange';
-
     }
 
     public function configureOptions(OptionsResolver $resolver): void

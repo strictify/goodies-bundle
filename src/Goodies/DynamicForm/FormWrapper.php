@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Strictify\Goodies\Goodies\DynamicForm;
 
+use Traversable;
 use IteratorAggregate;
+use ReturnTypeWillChange;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormError;
@@ -14,6 +16,7 @@ use Symfony\Component\Form\FormErrorIterator;
 use Symfony\Component\Form\FormConfigInterface;
 use Symfony\Component\Form\ClearableErrorsInterface;
 use Symfony\Component\PropertyAccess\PropertyPathInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
 
 class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsInterface
 {
@@ -42,7 +45,7 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->getErrors($deep, $flatten);
     }
 
-    public function handleRequest($request = null)
+    public function handleRequest(mixed $request = null): static
     {
         if ($request instanceof Request && $request->request->has('_dynamic_field')) {
             $this->isDynamicField = true;
@@ -82,71 +85,71 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->count();
     }
 
-    public function setParent(FormInterface $parent = null): self
+    public function setParent(FormInterface $parent = null): static
     {
         $this->form->setParent($parent);
 
         return $this;
     }
 
-    public function getParent()
+    public function getParent(): FormInterface
     {
         return $this->form->getParent();
     }
 
-    public function add($child, string $type = null, array $options = [])
+    public function add($child, string $type = null, array $options = []): static
     {
         $this->form->add($child, $type, $options);
 
         return $this;
     }
 
-    public function get(string $name)
+    public function get(string $name): FormInterface
     {
         return $this->form->get($name);
     }
 
-    public function has(string $name)
+    public function has(string $name): bool
     {
         return $this->form->has($name);
     }
 
-    public function remove(string $name)
+    public function remove(string $name): static
     {
         $this->form->remove($name);
 
         return $this;
     }
 
-    public function all()
+    public function all(): array
     {
         return $this->form->all();
     }
 
 
-    public function setData($modelData)
+    public function setData($modelData): static
     {
         $this->form->setData($modelData);
 
         return $this;
     }
 
-    public function getData()
+    public function getData(): mixed
     {
         return $this->form->getData();
     }
 
-    public function getNormData()
+    public function getNormData(): mixed
     {
         return $this->form->getNormData();
     }
 
-    public function getViewData()
+    public function getViewData(): mixed
     {
         return $this->form->getViewData();
     }
 
-    public function getExtraData()
+    public function getExtraData(): array
     {
         return $this->form->getExtraData();
     }
@@ -171,63 +174,63 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->getPropertyPath();
     }
 
-    public function addError(FormError $error): self
+    public function addError(FormError $error): static
     {
         $this->form->addError($error);
 
         return $this;
     }
 
-    public function isRequired()
+    public function isRequired(): bool
     {
         return $this->form->isRequired();
     }
 
-    public function isDisabled()
+    public function isDisabled(): bool
     {
         return $this->form->isDisabled();
     }
 
-    public function isEmpty()
+    public function isEmpty(): bool
     {
         return $this->form->isEmpty();
     }
 
-    public function isSynchronized()
+    public function isSynchronized(): bool
     {
         return $this->form->isSynchronized();
     }
 
-    public function getTransformationFailure()
+    public function getTransformationFailure(): ?TransformationFailedException
     {
         return $this->form->getTransformationFailure();
     }
 
-    public function initialize()
+    public function initialize(): static
     {
         $this->form->initialize();
 
         return $this;
     }
 
-    public function submit($submittedData, bool $clearMissing = true)
+    public function submit($submittedData, bool $clearMissing = true): static
     {
         $this->form->submit($submittedData, $clearMissing);
 
         return $this;
     }
 
-    public function getRoot()
+    public function getRoot(): FormInterface
     {
         return $this->form->getRoot();
     }
 
-    public function isRoot()
+    public function isRoot(): bool
     {
         return $this->form->isRoot();
     }
 
-    public function createView(FormView $parent = null)
+    public function createView(FormView $parent = null): FormView
     {
         return $this->form->createView($parent);
     }
@@ -235,7 +238,7 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
     /**
      * @return static
      */
-    public function clearErrors(bool $deep = false)
+    public function clearErrors(bool $deep = false): static
     {
         $this->form->clearErrors($deep);
 
@@ -243,11 +246,9 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
     }
 
     /**
-     * @psalm-suppress ImplementedReturnTypeMismatch
-     *
-     * @return iterable<mixed, FormInterface>
+     * @return Traversable<mixed, FormInterface>
      */
-    public function getIterator(): iterable
+    public function getIterator(): Traversable
     {
         return $this->form->getIterator();
     }

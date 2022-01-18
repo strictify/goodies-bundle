@@ -11,19 +11,13 @@
     ],
     "require": {
         "php": "8.*",
-        "symfony/framework-bundle": "^5.2",
-        "symfony/form": "^5.2"
+        "symfony/framework-bundle": "^5.4|^6.0",
+        "symfony/form": "^5.2|^6.0"
     },
     "require-dev": {
         "vimeo/psalm": "dev-master",
-        "psalm/plugin-symfony": "dev-symfony-forms"
+        "psalm/plugin-symfony": "dev-master"
     },
-    "repositories": [
-        {
-            "type": "github",
-            "url": "git@github.com:strictify/psalm-plugin-symfony.git"
-        }
-    ],
     "autoload": {
         "psr-4": {
             "Strictify\\Goodies\\": "src"

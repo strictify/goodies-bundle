@@ -22,3 +22,7 @@ services:
      Strictify\Goodies\Goodies\FormAction\AddFormActionExtension: ~
 
      Strictify\Goodies\Goodies\StreamBuilder\StreamBuilder: ~
+
+     Strictify\Goodies\Goodies\AttributeValueResolver\TurboFrameValueResolver:
+          tags:
+               - { name: 'controller.argument_value_resolver' }

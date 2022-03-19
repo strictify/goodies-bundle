@@ -20,3 +20,5 @@ services:
             - { name: 'form.type_extension', priority: 1 }
 
      Strictify\Goodies\Goodies\FormAction\AddFormActionExtension: ~
+
+     Strictify\Goodies\Goodies\StreamBuilder\StreamBuilder: ~

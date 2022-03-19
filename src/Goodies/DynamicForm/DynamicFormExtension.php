@@ -21,6 +21,7 @@ class DynamicFormExtension extends AbstractTypeExtension
      * @param array{dynamic: bool} $options
      *
      * @psalm-suppress MoreSpecificImplementedParamType
+     * @psalm-suppress MixedArrayAssignment
      */
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {

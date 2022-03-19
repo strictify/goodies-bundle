@@ -15,7 +15,6 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
  */
 class AddFormActionExtension extends AbstractTypeExtension
 {
-
     public function __construct(
         private RequestStack $requestStack,
     )
@@ -27,6 +26,9 @@ class AddFormActionExtension extends AbstractTypeExtension
         yield FormType::class;
     }
 
+    /**
+     * @psalm-suppress MixedArrayAssignment
+     */
     public function buildView(FormView $view, FormInterface $form, array $options): void
     {
         $name = $form->getName();

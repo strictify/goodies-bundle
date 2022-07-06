@@ -63,7 +63,7 @@ class RouterDecorator implements RouterInterface, WarmableInterface, ServiceSubs
     {
         foreach ($this->passQueryData as $passQueryDatum) {
             /** @var array<string>|null $values */
-            $values = $request->query->get($passQueryDatum);
+            $values = $request->query->all($passQueryDatum);
             if ($values) {
                 $parameters[$passQueryDatum] = $values;
             }

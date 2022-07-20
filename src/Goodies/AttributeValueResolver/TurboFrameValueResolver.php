@@ -27,7 +27,6 @@ class TurboFrameValueResolver implements ArgumentValueResolverInterface
         if (!$frameId && !$argument->isNullable()) {
             throw new RuntimeException('Turbo-frame not found.');
         }
-        $request->setRequestFormat(TurboBundle::STREAM_FORMAT);
         yield $frameId;
     }
 }

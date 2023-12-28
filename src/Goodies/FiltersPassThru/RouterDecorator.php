@@ -13,7 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Contracts\Service\ServiceSubscriberInterface;
 use Symfony\Component\HttpKernel\CacheWarmer\WarmableInterface;
 
-class RouterDecorator implements RouterInterface, WarmableInterface, ServiceSubscriberInterface
+class RouterDecorator implements RouterInterface, WarmableInterface
 {
     /**
      * @param array<string> $passQueryData
@@ -80,10 +80,5 @@ class RouterDecorator implements RouterInterface, WarmableInterface, ServiceSubs
         }
 
         return [];
-    }
-
-    public static function getSubscribedServices(): array
-    {
-        return Router::getSubscribedServices();
     }
 }

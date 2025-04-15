@@ -73,7 +73,7 @@ class RouterDecorator implements RouterInterface, WarmableInterface
     }
 
     /** @return array<string> */
-    public function warmUp(string $cacheDir): array
+    public function warmUp(string $cacheDir, ?string $buildDir = null): array
     {
         if ($this->router instanceof WarmableInterface) {
             return $this->router->warmUp($cacheDir);

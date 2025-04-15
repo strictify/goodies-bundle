@@ -11,13 +11,13 @@
     ],
     "require": {
         "php": "8.*",
-        "symfony/framework-bundle": "^5.4|^6.0",
-        "symfony/form": "^5.2|^6.0",
-        "symfony/mercure": "^0.6.1",
-        "symfony/ux-turbo": "^2.1"
+        "symfony/framework-bundle": "^5.4|^6.0|^7.0",
+        "symfony/form": "^5.2|^6.0|^7.0",
+        "symfony/mercure": "*",
+        "symfony/ux-turbo": "*"
     },
     "require-dev": {
-        "vimeo/psalm": "^4",
+        "vimeo/psalm": "^5",
         "psalm/plugin-symfony": "dev-master"
     },
     "autoload": {

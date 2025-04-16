@@ -92,7 +92,7 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this;
     }
 
-    public function getParent(): FormInterface
+    public function getParent(): FormInterface|null
     {
         return $this->form->getParent();
     }

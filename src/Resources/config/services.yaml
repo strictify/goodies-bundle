@@ -9,8 +9,8 @@ services:
 #          autowire: true
 
 
-     Strictify\Goodies\Goodies\FiltersPassThru\RouterDecorator:
-          decorates: "router"
+#     Strictify\Goodies\Goodies\FiltersPassThru\RouterDecorator:
+#          decorates: "router"
 
      Strictify\Goodies\Goodies\DynamicForm\FormFactoryDecorator:
           decorates: "form.factory"

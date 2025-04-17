@@ -10,7 +10,7 @@
         }
     ],
     "require": {
-        "php": "8.*",
+        "php": "8.1",
         "symfony/framework-bundle": "^7.0",
         "symfony/form": "^7.0",
         "symfony/mercure": "*",

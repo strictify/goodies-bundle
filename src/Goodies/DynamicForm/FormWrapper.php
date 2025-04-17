@@ -6,7 +6,6 @@ namespace Strictify\Goodies\Goodies\DynamicForm;
 
 use Traversable;
 use IteratorAggregate;
-use ReturnTypeWillChange;
 use Symfony\Component\Form\Form;
 use Symfony\Component\Form\FormView;
 use Symfony\Component\Form\FormError;
@@ -85,7 +84,7 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->count();
     }
 
-    public function setParent(FormInterface $parent = null): static
+    public function setParent(FormInterface|null $parent): static
     {
         $this->form->setParent($parent);
 
@@ -97,7 +96,7 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->getParent();
     }
 
-    public function add($child, string $type = null, array $options = []): static
+    public function add($child, string|null $type = null, array $options = []): static
     {
         $this->form->add($child, $type, $options);
 
@@ -230,7 +229,7 @@ class FormWrapper implements IteratorAggregate, FormInterface, ClearableErrorsIn
         return $this->form->isRoot();
     }
 
-    public function createView(FormView $parent = null): FormView
+    public function createView(FormView|null $parent = null): FormView
     {
         return $this->form->createView($parent);
     }
